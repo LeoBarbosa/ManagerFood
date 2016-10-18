@@ -1,0 +1,37 @@
+<ion-view cache-view="false">
+    <ion-side-menus>
+      <ion-side-menu-content>
+        <div class="bar bar-header bar-assertive">
+          <div class="buttons">
+            <button class="button button-icon icon ion-navicon" ng-click="toggleLeft()">
+          </div>
+          <h1 class="title"><a href="#/home">Manager Food</a></h1>
+        </div>
+        <div class="content" id="home">
+            Seja Bem-vindo ao<br><br>
+            <img class="logo" src="img/managerfoodlogo.png">
+            <br>
+            <br>
+            Um app que irá auxilia-lo em suas <strong>receitas</strong> e seus <strong>produtos</strong>.<br>
+            Entre <strong>gastos</strong> e <strong>lucros</strong>!
+        </div>
+      </ion-side-menu-content>
+      <ion-side-menu side="left">
+         <ion-list>
+            <ion-item><a menu-close href="#/" class="item">Início</a></ion-item>
+          </ion-list>
+         <ion-list>
+            <ion-item><a menu-close href="#/ingredientes" class="item" ng-click="listarIngredientes()">Ingredientes</a></ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item><a menu-close href="#/receitas" class="item" ng-click="listarReceitas()">Receita</a></ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item><a menu-close href="#/vendas" class="item">Vendas</a></ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item><a menu-close href="#/cobranca" class="item">Cobrança</a></ion-item>
+          </ion-list>
+        </ion-side-menu>
+    </ion-side-menus>
+</ion-view>

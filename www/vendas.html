@@ -1,0 +1,79 @@
+<ion-view cache-view="false">
+    <ion-side-menus>
+      <ion-side-menu-content>
+        <div class="bar bar-header bar-assertive">
+          <div class="buttons">
+            <button class="button button-icon icon ion-navicon" ng-click="toggleLeft()">
+          </div>
+          <h1 class="title"><a href="#/home">Manager Food</a></h1>
+        </div>
+        <div class="content" id="vendas">
+            <div class="title-pag">Vendas</div>
+            <button class="button icon ion-plus" ng-click="novo()"></button>
+            <div class="adc" ng-show="exibe">
+                <div class="list list-inset">
+                   
+                      <label class="item item-input">
+                        <input type="text" placeholder="Cliente">
+                      </label>
+                        <select name="" id="">
+                            <option default>Produto</option>
+                            <option>Produto II</option>
+                        </select>
+
+                      <label class="item item-input">
+                          <input type="text" placeholder="Quantidade Vendida">
+                      </label>
+                      <label class="item item-input ">
+                        <input type="text" placeholder="Valor">
+                      </label>
+                      <label class="item item-input">
+                          <input type="date" placeholder="Data p/ Pagamento"/>
+                      </label>
+                            <select name="" id="">
+                                <option selected="selected">Status</option>
+                                <option>Pago</option>
+                                <option>Aguardando Pagamento</option>
+                                <option>Encomendado</option>
+                            </select>
+                      
+                         <div>
+                            <button class="button button-balanced">
+                                Salvar
+                            </button>
+                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="head">
+                        <li class="head">Receitas</li>
+                        <li class="head">Valor Total</li>
+                        <li>
+                            <p>Pão de Mel</p>
+                            <p>R$50,00</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+      </ion-side-menu-content>
+    <ion-side-menu side="left">
+         <ion-list>
+            <ion-item><a menu-close href="#/" class="item">Início</a></ion-item>
+          </ion-list>
+         <ion-list>
+            <ion-item><a menu-close href="#/ingredientes" class="item" ng-click="listarIngredientes()">Ingredientes</a></ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item><a menu-close href="#/receitas" class="item" ng-click="listarReceitas()">Receita</a></ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item><a menu-close href="#/vendas" class="item">Vendas</a></ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item><a menu-close href="#/cobranca" class="item">Cobrança</a></ion-item>
+          </ion-list>
+        </ion-side-menu>
+    </ion-side-menus>
+</ion-view>

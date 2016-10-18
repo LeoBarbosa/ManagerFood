@@ -1,0 +1,121 @@
+<ion-view cache-view="false">
+  <ion-side-menus>
+    <ion-side-menu-content>
+      <div class="bar bar-header bar-assertive">
+        <div class="buttons">
+          <button class="button button-icon icon ion-navicon" ng-click="toggleLeft()">
+        </div>
+        <h1 class="title"><a href="#/home">Manager Food</a></h1>
+      </div>
+      <div class="content" id="receitas">
+          <div class="title-pag" ng-click="calculaValorTotalReceita()">Receitas</div>
+          <button class="button icon ion-plus" ng-click="novaReceita()"></button>
+          <button class="button button-energized" ng-click="adicionarIngredienteReceita()">
+            Adicionar Ingredientes à Receita
+          </button>
+          {{temp}}
+          <div class="adc-ingrediente" ng-show="exibe2">
+            <div class="list list-inset">
+                <select ng-model="ingredienteRec.receitaId">
+                  <option ng-repeat="receita in receitas" value="{{receita.id}}" >{{receita.nome}}</option>
+                </select>
+                <select ng-model="ingredienteRec.ingredienteId">
+                  <option ng-repeat="ingrediente in ingredientes" value="{{ingrediente.id}}">{{ingrediente.nome}}</option>
+                </select>
+                <label class="item item-input">
+                  <input type="text" placeholder="Quantida em 'gm'" ng-model="ingredienteRec.quantidade">
+                </label>
+                <div class="row">
+                  <div class="col-30">
+                    <button ng-click="salvarIngredienteReceita(ingredienteRec)" class="button button-balanced">
+                        Salvar
+                    </button>
+                  </div>
+                </div>
+            </div>
+          </div>
+          {{dadosIngredientesRec}}
+          <div class="adc" ng-show="exibe">
+            <div class="list list-inset">
+                <label class="item item-input">
+                  <input type="text" placeholder="Receita" ng-model="receita.nome">
+                </label>
+                <label class="item item-input">
+                  <input type="text" placeholder="Quantidade por receita" ng-model="receita.quantidadeFinal">
+                </label>
+                <label class="item item-input">
+                  <input type="text" placeholder="Valor venda por unidade" ng-model="receita.valorUnidade">
+                </label>
+                <div class="row">
+                  <div class="col-30">
+                    <button ng-click="salvarReceita(receita)" class="button button-balanced">
+                        Salvar
+                    </button>
+                  </div>
+                  <div class="col-30" ng-show="editando" style="margin-left:10px;">
+                    <button ng-click="excluirReceita(receita.id)"class="button button-balanced">
+                        Excluir
+                    </button>
+                  </div>
+                </div>
+            </div>
+          </div>
+             <div class="row">
+                  <div class="col col-30 head">Receita</div>
+                  <div class="col col-30 head">Quantidade por receita</div>
+                  <div class="col col-30 head">Valor venda por unidade</div>
+                  <div class="col col-30 head">Valor total receita</div>
+              </div>
+              <ul class="row" ng-repeat="receita in receitas">
+                <li class="item"  >
+                  <div>
+                    <div class="row" ng-click="editarReceita($index, receita)">
+                        <div class="col col-30">
+                          {{receita.nome}}
+                        </div>
+                        <div class="col col-30">
+                          {{receita.quantidadeFinal}}
+                        </div>
+                        <div class="col col-30">
+                          {{receita.valorUnidade | currency: 'R$'}}
+                        </div>
+                        <div class="col col-30">
+                          {{receita.valorTotal | currency: 'R$'}}
+                        </div>
+                    </div>
+                    <span class="ion-arrow-down-b" ng-click="listarIngredientesReceita(receita.id)">
+                      <div class="detalhes" ng-class="{'show': receita.id == classClick }">
+                          <div class="row">
+                            <div class="col col-30 head two">Ingrediente</div>
+                            <div class="col col-30 head two">Quantidade usada</div>
+                          </div>
+                          <div  class="row" ng-repeat="ingredienteRec in ingredientesRec">
+                            <div class="col col-30">{{ingredienteRec.nome}}</div>
+                            <div class="col col-30">{{ingredienteRec.quantidade}}</div>
+                          </div>
+                      </div>
+                    </span>
+                  </div>
+                </li>
+              </ul> 
+      </div>
+    </ion-side-menu-content>
+     <ion-side-menu side="left">
+       <ion-list>
+          <ion-item><a menu-close href="#/" class="item">Início</a></ion-item>
+        </ion-list>
+       <ion-list>
+          <ion-item><a menu-close href="#/ingredientes" class="item" ng-click="listarIngredientes()">Ingredientes</a></ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item><a menu-close href="#/receitas" class="item" ng-click="listarReceitas()">Receita</a></ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item><a menu-close href="#/vendas" class="item">Vendas</a></ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item><a menu-close href="#/cobranca" class="item">Cobrança</a></ion-item>
+        </ion-list>
+      </ion-side-menu>
+  </ion-side-menus>
+</ion-view>
